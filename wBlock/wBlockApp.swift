@@ -75,6 +75,9 @@ struct wBlockApp: App {
         WindowGroup {
             ContentView(filterManager: filterManager)
                 .preferredColorScheme(appearance.colorScheme)
+                #if os(macOS)
+                .modifier(MainWindowToolbarBackground())
+                #endif
                 .onAppear {
                     #if os(macOS)
                     if HeadlessLaunch.isHeadlessProcess {
@@ -165,3 +168,17 @@ struct wBlockApp: App {
         #endif
     }
 }
+
+#if os(macOS)
+private struct MainWindowToolbarBackground: ViewModifier {
+    @ViewBuilder
+    func body(content: Content) -> some View {
+        if #available(macOS 26.0, *) {
+            // Keep the toolbar seamless while the initially empty tabs load.
+            content.toolbarBackground(.hidden, for: .windowToolbar)
+        } else {
+            content
+        }
+    }
+}
+#endif
