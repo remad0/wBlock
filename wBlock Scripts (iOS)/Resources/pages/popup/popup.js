@@ -1,4 +1,3 @@
-const NATIVE_HOST_ID = 'application.id';
 const ZAPPER_STORAGE_PREFIX = 'wblock.zapperRules.v1:';
 const ZAPPER_META_PREFIX = 'wblock.zapperMeta.v1:';
 const NO_AUTOPLAY_ENABLED_KEY = 'wblock.noAutoplay.enabled.v1';
@@ -78,7 +77,13 @@ function withTimeout(promise, timeoutMs, message = 'Operation timed out.') {
 
 function sendNativeMessageWithTimeout(message, timeoutMs = NATIVE_MESSAGE_TIMEOUT_MS) {
     return withTimeout(
-        browser.runtime.sendNativeMessage(NATIVE_HOST_ID, message),
+        // Safari native messaging belongs to the background context, not the popup.
+        browser.runtime.sendMessage({ action: 'wblock:popup:nativeMessage', message }).then((response) => {
+            if (!response || response.ok !== true) {
+                throw new Error((response && response.error) || 'Native message relay failed');
+            }
+            return response.response;
+        }),
         timeoutMs,
         `Native message timed out: ${message && message.action ? message.action : 'unknown'}`
     );
@@ -942,7 +947,10 @@ async function setSiteZapperDisabled(host, disabled) {
         hostname: host,
         disabled: Boolean(disabled),
     }, 10000);
-    const nextDisabled = Boolean(response && response.disabled);
+    if (!response || response.ok !== true || typeof response.disabled !== 'boolean') {
+        throw new Error((response && response.error) || 'Invalid Zapper state response');
+    }
+    const nextDisabled = response.disabled;
     await setSyncMeta(host, { disabled: nextDisabled });
     return response;
 }

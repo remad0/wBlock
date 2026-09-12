@@ -26596,7 +26596,8 @@ function _toPrimitive(t, r) { if ("object" != typeof t || !t) return t; var e = 
     if (pending) {
       return pending;
     }
-    const requestPromise = sendQueuedNativeMessage({
+    // Zapper activation and action state cannot wait behind background updates.
+    const requestPromise = sendPriorityNativeMessage({
       action: "getSiteDisabledState",
       host: normalizedHost
     }).finally(() => {
@@ -26626,6 +26627,28 @@ function _toPrimitive(t, r) { if ("object" != typeof t || !t) return t; var e = 
     var _sender$tab, _sender$tab2;
     // Cast the incoming request to `Message`.
     let message = request;
+    if (message && message.action === "wblock:popup:nativeMessage") {
+      const allowedActions = new Set([
+        "logExtensionDiagnostic", "syncZapperRules", "getZapperRules",
+        "getBlockingPausedState", "getResumeRequestStatus", "resumeBlocking",
+        "getSiteDisabledState", "setSiteDisabledState", "setSiteZapperDisabled",
+        "getPageUserScripts", "setUserScriptSiteDisabledState", "getNoAutoplayState",
+        "setNoAutoplaySiteAllowed", "setNoAutoplayEnabled", "openContainingApp"
+      ]);
+      const nativeRequest = message.message;
+      // A content script must not gain the popup's native mutation privileges.
+      if (!sender || sender.tab || sender.url !== browser.runtime.getURL("pages/popup/popup.html")
+          || !nativeRequest || !allowedActions.has(nativeRequest.action)) {
+        return { ok: false, error: "Invalid popup native request" };
+      }
+      try {
+        // User actions must not wait behind queued filter or userscript updates.
+        const response = await sendPriorityNativeMessage(nativeRequest);
+        return { ok: true, response };
+      } catch (error) {
+        return { ok: false, error: String(error && error.message ? error.message : error) };
+      }
+    }
     const frameActions = new Set([
       "getUserScripts", "validateUserScriptExecution", "getUserScriptContentChunk",
       "getUserScriptResourceChunk", "setUserScriptStorageValue", "deleteUserScriptStorageValue"

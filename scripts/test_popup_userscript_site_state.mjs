@@ -180,6 +180,7 @@ const siteScripts = [
   { id: "script-disabled", name: "Disabled Script", disabledForSite: true, running: false },
 ];
 
+let zapperMutationResponse = { ok: true, disabled: true };
 const sandbox = {
   browser: {
     i18n: { getMessage: () => "" },
@@ -187,6 +188,9 @@ const sandbox = {
       getPlatformInfo: async () => ({ os: "mac" }),
       sendMessage: async (message) => {
         runtimeMessages.push(message);
+        if (message?.action === "wblock:popup:nativeMessage") {
+          return { ok: true, response: await nativeHandler(message.message) };
+        }
         if (message?.action === "wblock:filterUpdate:getStatus") return { ok: true, state: "idle" };
         if (message?.action === "wblock:installRemoveParamDNRRules") return { ok: true };
         if (message?.action === "wblock:menu:getCommands") return { ok: true, commands: [] };
@@ -194,7 +198,8 @@ const sandbox = {
         if (message?.action === "wblock:clearCache") return { ok: true };
         return { ok: true };
       },
-      sendNativeMessage: async (_hostId, message) => {
+      sendNativeMessage: () => { throw new Error("Native messaging is unavailable in the popup"); },
+      testNativeHandler: async (message) => {
         nativeMessages.push(message);
         if (message?.action === "getBlockingPausedState") {
           return { paused: false, filtersPaused: false, userScriptsPaused: false, elementZapperPaused: false, resumeAvailable: false };
@@ -204,6 +209,7 @@ const sandbox = {
         if (message?.action === "getZapperRules") return { ok: true, rules: [], disabled: false };
         if (message?.action === "getNoAutoplayState") return { enabled: true, siteAllowed: false };
         if (message?.action === "setUserScriptSiteDisabledState") return { ok: true };
+        if (message?.action === "setSiteZapperDisabled") return zapperMutationResponse;
         return { ok: true };
       },
     },
@@ -272,6 +278,8 @@ const sandbox = {
 sandbox.globalThis = sandbox;
 sandbox.requestAnimationFrame = sandbox.window.requestAnimationFrame;
 
+const nativeHandler = sandbox.browser.runtime.testNativeHandler;
+delete sandbox.browser.runtime.testNativeHandler;
 vm.createContext(sandbox);
 vm.runInContext(`${popupSource}\nglobalThis.__refreshPopupForTest = refreshUi;`, sandbox, { filename: "popup.js" });
 for (const listener of documentListeners.get("DOMContentLoaded") || []) listener();
@@ -301,5 +309,16 @@ const toggleRequest = nativeMessages.find((message) => message.action === "setUs
 check("userscript site toggle writes through native handler", toggleRequest?.scriptId === "script-disabled" && toggleRequest.host === "example.com" && toggleRequest.disabled === false);
 check("successful userscript site toggle refreshes rendered state", elements.get("userscripts-list").children[1].children[1].children[0].checked === true);
 check("userscript site toggle reloads the active tab", reloads.some((entry) => entry.tabId === 9));
+
+check("popup loads without direct native messaging", elements.get("error").textContent === "");
+await vm.runInContext("setSiteZapperDisabled('example.com', true)", sandbox);
+check("zapper toggle persists the native acknowledgment", storage.get("wblock.zapperMeta.v1:example.com")?.disabled === true);
+zapperMutationResponse = {};
+let rejected = false;
+try { await vm.runInContext("setSiteZapperDisabled('example.com', false)", sandbox); } catch { rejected = true; }
+check("invalid zapper acknowledgment cannot overwrite cached state", rejected && storage.get("wblock.zapperMeta.v1:example.com")?.disabled === true);
+zapperMutationResponse = { ok: true, disabled: false };
+await vm.runInContext("setSiteZapperDisabled('example.com', false)", sandbox);
+check("zapper can be re-enabled through the relay", storage.get("wblock.zapperMeta.v1:example.com")?.disabled === false);
 
 if (failures > 0) process.exitCode = 1;

@@ -175,7 +175,7 @@
       const response = await withTimeout(browser.runtime.sendMessage({
         action: 'wblock:getSiteDisabledState',
         host
-      }), 800, 'Site state lookup timed out.');
+      }), NATIVE_MESSAGE_TIMEOUT_MS, 'Site state lookup timed out.');
       if (!response || response.ok !== true || typeof response.disabled !== 'boolean') {
         return null;
       }

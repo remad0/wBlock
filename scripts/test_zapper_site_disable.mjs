@@ -25,7 +25,7 @@ const HOST = "example.com";
 const STYLE_ID = "wblock-zapper-style";
 const LEGACY_KEY = `wblock.zapperRulesDisabled.v1:${HOST}`;
 
-function makeSandbox({ nativeRules, nativeDisabled, localStorageSeed = {}, isTopFrame = true, getRulesDelayMs = 0, broadcastReload = null }) {
+function makeSandbox({ nativeRules, nativeDisabled, localStorageSeed = {}, isTopFrame = true, getRulesDelayMs = 0, siteStateDelayMs = 0, broadcastReload = null }) {
   const native = {
     rules: [...nativeRules],
     disabled: nativeDisabled,
@@ -120,6 +120,7 @@ function makeSandbox({ nativeRules, nativeDisabled, localStorageSeed = {}, isTop
           return handleNativeAction({ ...message, action: "setSiteZapperDisabled" });
         }
         if (message.action === "wblock:getSiteDisabledState") {
+          if (siteStateDelayMs) await new Promise(resolve => setTimeout(resolve, siteStateDelayMs));
           return { ok: true, ...handleNativeAction({ ...message, action: "getSiteDisabledState" }) };
         }
         if (message.action === "wblock:zapper:broadcastReload") {
@@ -334,6 +335,13 @@ check(
 
   const suppressed = await waitFor(() => env.styleText() === "");
   check("suppresses hiding after legacy migration", suppressed);
+}
+
+// A slower native host must not look like a disabled site after 800 ms.
+{
+  const env = makeSandbox({ nativeRules: [".slow-ad"], nativeDisabled: false, siteStateDelayMs: 1000 });
+  loadScript(env.sandbox);
+  check("slow site-state lookup still applies enabled zapper rules", await waitFor(() => (env.styleText() ?? "").includes(".slow-ad"), 3000));
 }
 
 if (failures > 0) {

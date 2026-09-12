@@ -80,6 +80,7 @@ const loadBackground = ({
   const listenerStub = { addListener: () => {} };
   const browser = {
     runtime: {
+      getURL: relative => `safari-web-extension://test/${relative}`,
       sendNativeMessage: (_appId, message) => {
         state.nativeMessages.push(message);
         return defaultNative(message);
@@ -465,7 +466,7 @@ const frameSender = (url, topUrl, frameId = 1) => ({ url, frameId, tab: { id: 7,
   let postToggleResolved = false;
   postToggleLookup.then(() => { postToggleResolved = true; });
   await sleep(20);
-  check("post-toggle site lookup does not use pending pre-toggle work", !postToggleResolved);
+  check("post-toggle site lookup does not wait for pending pre-toggle work", postToggleResolved);
   resolveStale({ disabled: true });
   const [staleResult, postToggleResult] = await Promise.all([staleLookup, postToggleLookup]);
   await clearLookup;
@@ -1069,6 +1070,27 @@ for (const source of [canonicalSource, bundleSource]) {
   check("top-frame fallback relay broadcasts a reload to the sender tab",
     broadcast.ok === true
       && state.tabMessages.some(entry => entry.tabId === 7 && entry.message?.type === "wblock:zapper:reloadRules"));
+}
+
+for (const source of [canonicalSource, bundleSource]) {
+  const state = loadBackground({ source, nativeHandler: message => {
+    if (message.action === "setSiteZapperDisabled") return { ok: true, disabled: message.disabled };
+    if (message.action === "getBlockingPausedState") throw new Error("Native unavailable");
+    return { payload: makeConfig([], 1) };
+  } });
+  const popupSender = { url: "safari-web-extension://test/pages/popup/popup.html" };
+  const request = { action: "wblock:popup:nativeMessage", message: { action: "setSiteZapperDisabled", hostname: "example.com", disabled: true } };
+  const result = await state.onMessage(request, popupSender);
+  check("popup relay preserves native mutation responses", result.ok && result.response.disabled === true);
+  for (const sender of [undefined, topFrameSender("https://example.com/"), { url: "https://example.com/pages/popup/popup.html" }, { ...popupSender, tab: { id: 7 } }]) {
+    const before = state.nativeMessages.filter(message => message.action === "setSiteZapperDisabled").length;
+    const denied = await state.onMessage(request, sender);
+    check("popup relay rejects non-popup senders without native mutations", denied.ok === false && state.nativeMessages.filter(message => message.action === "setSiteZapperDisabled").length === before);
+  }
+  const denied = await state.onMessage({ ...request, message: { action: "deleteUserScriptStorageValue" } }, popupSender);
+  check("popup relay rejects actions outside its allowlist", denied.ok === false);
+  const failed = await state.onMessage({ ...request, message: { action: "getBlockingPausedState" } }, popupSender);
+  check("popup relay reports native transport failures", failed.ok === false && failed.error === "Native unavailable");
 }
 
 if (failures > 0) {
