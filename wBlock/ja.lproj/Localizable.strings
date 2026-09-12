@@ -6,7 +6,7 @@
 "This script will not run on excluded sites, even if they are selected." = "選択されていても、除外したサイトではこのスクリプトは実行されません。";
 "Sites include their subdomains. The script’s own matching rules still apply. Reload the page after making changes." = "サイトにはサブドメインも含まれます。スクリプト独自の一致ルールも引き続き適用されます。変更後はページを再読み込みしてください。";
 "Could not save site settings" = "サイト設定を保存できませんでした";
-"SponsorBlock Settings" = "SponsorBlock設定";
+"SponsorBlock Backups" = "SponsorBlockのバックアップ";
 "Import SponsorBlock Settings" = "SponsorBlock設定を読み込む";
 "Export SponsorBlock Settings" = "SponsorBlock設定を書き出す";
 "Transfers category choices, skip notices, minimum segment length, and legacy channel allowlists. Private user IDs, contributions, and per-channel profiles are excluded. Seek-bar-only categories become Disabled." = "カテゴリ、スキップ通知、最小区間長、旧形式のチャンネル許可リストを移行します。非公開ユーザーID、投稿データ、チャンネル別プロファイルは除外されます。シークバー表示のみのカテゴリは無効になります。";

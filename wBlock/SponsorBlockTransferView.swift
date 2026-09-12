@@ -8,10 +8,27 @@ struct SponsorBlockTransferButton: View {
 
     var body: some View {
         Button { showingTransfer = true } label: {
-            Label("SponsorBlock Settings", systemImage: "arrow.up.arrow.down.document")
-                .font(.caption)
+            HStack(spacing: 6) {
+                Image(systemName: "doc.badge.gearshape")
+                    .imageScale(.small)
+                Text("SponsorBlock Backups")
+                    .fontWeight(.medium)
+                    .lineLimit(1)
+                Image(systemName: "chevron.forward")
+                    .font(.caption2.weight(.semibold))
+                    .foregroundStyle(.tertiary)
+            }
+            .font(.caption)
+            .foregroundStyle(.secondary)
+            .padding(.horizontal, 8)
+            .padding(.vertical, 5)
+            .background(
+                Capsule(style: .continuous)
+                    .fill(Color.primary.opacity(0.06))
+            )
         }
-        .buttonStyle(.borderless)
+        .buttonStyle(.plain)
+        .noFocusRingCompat()
         .sheet(isPresented: $showingTransfer) {
             SponsorBlockTransferView(scriptID: scriptID)
         }
@@ -76,7 +93,7 @@ private struct SponsorBlockTransferView: View {
         Group {
             #if os(macOS)
             VStack(spacing: 0) {
-                Text("SponsorBlock Settings")
+                Text("SponsorBlock Backups")
                     .font(.headline)
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(20)
@@ -95,7 +112,7 @@ private struct SponsorBlockTransferView: View {
             #else
             CompatibleNavigationStack {
                 form
-                    .navigationTitle("SponsorBlock Settings")
+                    .navigationTitle("SponsorBlock Backups")
                     .toolbar {
                         ToolbarItem(placement: .confirmationAction) {
                             Button("Done") { dismiss() }.disabled(busy)
@@ -147,7 +164,7 @@ private struct SponsorBlockTransferView: View {
             }
             Button("Cancel", role: .cancel) { pending = nil }
         }
-        .alert("SponsorBlock Settings", isPresented: $showingStatus) {
+        .alert("SponsorBlock Backups", isPresented: $showingStatus) {
             Button("OK") {}
         } message: { Text(status) }
     }

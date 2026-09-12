@@ -6,7 +6,7 @@
 "This script will not run on excluded sites, even if they are selected." = "即使已選取，此腳本也不會在排除的網站上執行。";
 "Sites include their subdomains. The script’s own matching rules still apply. Reload the page after making changes." = "網站包括其子網域。腳本本身的比對規則仍然適用。變更後請重新載入頁面。";
 "Could not save site settings" = "無法儲存網站設定";
-"SponsorBlock Settings" = "SponsorBlock 設定";
+"SponsorBlock Backups" = "SponsorBlock 備份";
 "Import SponsorBlock Settings" = "匯入 SponsorBlock 設定";
 "Export SponsorBlock Settings" = "匯出 SponsorBlock 設定";
 "Transfers category choices, skip notices, minimum segment length, and legacy channel allowlists. Private user IDs, contributions, and per-channel profiles are excluded. Seek-bar-only categories become Disabled." = "傳輸類別選擇、略過提示、最短片段長度和舊版頻道允許清單。不包含私人使用者 ID、貢獻紀錄及各頻道設定檔。僅在進度列中顯示的類別將被停用。";

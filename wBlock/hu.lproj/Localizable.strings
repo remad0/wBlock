@@ -6,7 +6,7 @@
 "This script will not run on excluded sites, even if they are selected." = "Ez a szkript nem fut a kizárt webhelyeken, akkor sem, ha ki vannak választva.";
 "Sites include their subdomains. The script’s own matching rules still apply. Reload the page after making changes." = "A webhelyek az aldomainjeiket is magukban foglalják. A szkript saját illeszkedési szabályai továbbra is érvényesek. A módosítások után töltsd újra az oldalt.";
 "Could not save site settings" = "Nem sikerült menteni a webhelybeállításokat";
-"SponsorBlock Settings" = "SponsorBlock-beállítások";
+"SponsorBlock Backups" = "SponsorBlock biztonsági mentések";
 "Import SponsorBlock Settings" = "SponsorBlock-beállítások importálása";
 "Export SponsorBlock Settings" = "SponsorBlock-beállítások exportálása";
 "Transfers category choices, skip notices, minimum segment length, and legacy channel allowlists. Private user IDs, contributions, and per-channel profiles are excluded. Seek-bar-only categories become Disabled." = "Átviszi a kategóriákat, átugrási értesítéseket, minimális szakaszhosszt és régi csatornaengedélyezési listákat. A privát felhasználói azonosítók, hozzájárulások és csatornaprofilok kimaradnak. A csak a folyamatjelzőn megjelenő kategóriák letiltódnak.";

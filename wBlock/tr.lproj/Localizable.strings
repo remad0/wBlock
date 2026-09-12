@@ -6,7 +6,7 @@
 "This script will not run on excluded sites, even if they are selected." = "Bu betik, seçilmiş olsalar bile hariç tutulan sitelerde çalışmaz.";
 "Sites include their subdomains. The script’s own matching rules still apply. Reload the page after making changes." = "Siteler alt alan adlarını da kapsar. Betiğin kendi eşleştirme kuralları geçerli olmaya devam eder. Değişikliklerden sonra sayfayı yeniden yükleyin.";
 "Could not save site settings" = "Site ayarları kaydedilemedi";
-"SponsorBlock Settings" = "SponsorBlock Ayarları";
+"SponsorBlock Backups" = "SponsorBlock Yedekleri";
 "Import SponsorBlock Settings" = "SponsorBlock Ayarlarını İçe Aktar";
 "Export SponsorBlock Settings" = "SponsorBlock Ayarlarını Dışa Aktar";
 "Transfers category choices, skip notices, minimum segment length, and legacy channel allowlists. Private user IDs, contributions, and per-channel profiles are excluded. Seek-bar-only categories become Disabled." = "Kategorileri, atlama bildirimlerini, minimum bölüm süresini ve eski izin verilen kanal listelerini aktarır. Özel kullanıcı kimlikleri, katkılar ve kanal profilleri hariç tutulur. Yalnızca ilerleme çubuğunda gösterilen kategoriler devre dışı bırakılır.";

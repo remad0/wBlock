@@ -6,7 +6,7 @@
 "This script will not run on excluded sites, even if they are selected." = "제외된 사이트에서는 선택되어 있어도 이 스크립트가 실행되지 않습니다.";
 "Sites include their subdomains. The script’s own matching rules still apply. Reload the page after making changes." = "사이트에는 하위 도메인도 포함됩니다. 스크립트 자체의 일치 규칙도 계속 적용됩니다. 변경 후 페이지를 새로고침하세요.";
 "Could not save site settings" = "사이트 설정을 저장하지 못했습니다";
-"SponsorBlock Settings" = "SponsorBlock 설정";
+"SponsorBlock Backups" = "SponsorBlock 백업";
 "Import SponsorBlock Settings" = "SponsorBlock 설정 가져오기";
 "Export SponsorBlock Settings" = "SponsorBlock 설정 내보내기";
 "Transfers category choices, skip notices, minimum segment length, and legacy channel allowlists. Private user IDs, contributions, and per-channel profiles are excluded. Seek-bar-only categories become Disabled." = "카테고리, 건너뛰기 알림, 최소 구간 길이, 이전 형식의 채널 허용 목록을 이전합니다. 비공개 사용자 ID, 기여 내역, 채널별 프로필은 제외됩니다. 탐색 막대에만 표시하는 카테고리는 비활성화됩니다.";

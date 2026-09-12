@@ -6,7 +6,7 @@
 "This script will not run on excluded sites, even if they are selected." = "This script will not run on excluded sites, even if they are selected.";
 "Sites include their subdomains. The script’s own matching rules still apply. Reload the page after making changes." = "Sites include their subdomains. The script’s own matching rules still apply. Reload the page after making changes.";
 "Could not save site settings" = "Could not save site settings";
-"SponsorBlock Settings" = "SponsorBlock Settings";
+"SponsorBlock Backups" = "SponsorBlock Backups";
 "Import SponsorBlock Settings" = "Import SponsorBlock Settings";
 "Export SponsorBlock Settings" = "Export SponsorBlock Settings";
 "Transfers category choices, skip notices, minimum segment length, and legacy channel allowlists. Private user IDs, contributions, and per-channel profiles are excluded. Seek-bar-only categories become Disabled." = "Transfers category choices, skip notices, minimum segment length, and legacy channel allowlists. Private user IDs, contributions, and per-channel profiles are excluded. Seek-bar-only categories become Disabled.";

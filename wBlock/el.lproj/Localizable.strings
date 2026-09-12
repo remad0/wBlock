@@ -6,7 +6,7 @@
 "This script will not run on excluded sites, even if they are selected." = "Αυτό το script δεν θα εκτελείται σε εξαιρούμενους ιστοτόπους, ακόμη κι αν έχουν επιλεγεί.";
 "Sites include their subdomains. The script’s own matching rules still apply. Reload the page after making changes." = "Οι ιστότοποι περιλαμβάνουν τους υποτομείς τους. Οι κανόνες αντιστοίχισης του script εξακολουθούν να ισχύουν. Φορτώστε ξανά τη σελίδα μετά τις αλλαγές.";
 "Could not save site settings" = "Δεν ήταν δυνατή η αποθήκευση των ρυθμίσεων ιστοτόπων";
-"SponsorBlock Settings" = "Ρυθμίσεις SponsorBlock";
+"SponsorBlock Backups" = "Αντίγραφα ασφαλείας SponsorBlock";
 "Import SponsorBlock Settings" = "Εισαγωγή ρυθμίσεων SponsorBlock";
 "Export SponsorBlock Settings" = "Εξαγωγή ρυθμίσεων SponsorBlock";
 "Transfers category choices, skip notices, minimum segment length, and legacy channel allowlists. Private user IDs, contributions, and per-channel profiles are excluded. Seek-bar-only categories become Disabled." = "Μεταφέρει κατηγορίες, ειδοποιήσεις παράλειψης, ελάχιστη διάρκεια και παλιές λίστες επιτρεπόμενων καναλιών. Εξαιρούνται ιδιωτικά αναγνωριστικά, συνεισφορές και προφίλ καναλιών. Οι κατηγορίες μόνο για τη γραμμή προόδου απενεργοποιούνται.";

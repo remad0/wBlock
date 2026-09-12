@@ -6,7 +6,7 @@
 "This script will not run on excluded sites, even if they are selected." = "Acest script nu va rula pe site-urile excluse, chiar dacă sunt selectate.";
 "Sites include their subdomains. The script’s own matching rules still apply. Reload the page after making changes." = "Site-urile includ și subdomeniile lor. Regulile de potrivire ale scriptului se aplică în continuare. Reîncarcă pagina după modificări.";
 "Could not save site settings" = "Nu s-au putut salva setările site-urilor";
-"SponsorBlock Settings" = "Setări SponsorBlock";
+"SponsorBlock Backups" = "Copii de siguranță SponsorBlock";
 "Import SponsorBlock Settings" = "Importă setările SponsorBlock";
 "Export SponsorBlock Settings" = "Exportă setările SponsorBlock";
 "Transfers category choices, skip notices, minimum segment length, and legacy channel allowlists. Private user IDs, contributions, and per-channel profiles are excluded. Seek-bar-only categories become Disabled." = "Transferă categoriile, notificările de omitere, durata minimă și listele vechi de canale permise. Exclude ID-urile private, contribuțiile și profilurile pe canal. Categoriile afișate doar în bara de progres sunt dezactivate.";

@@ -6,7 +6,7 @@
 "This script will not run on excluded sites, even if they are selected." = "Questo script non verrà eseguito sui siti esclusi, anche se sono selezionati.";
 "Sites include their subdomains. The script’s own matching rules still apply. Reload the page after making changes." = "I siti includono i propri sottodomini. Le regole di corrispondenza dello script restano valide. Ricarica la pagina dopo le modifiche.";
 "Could not save site settings" = "Impossibile salvare le impostazioni dei siti";
-"SponsorBlock Settings" = "Impostazioni SponsorBlock";
+"SponsorBlock Backups" = "Backup di SponsorBlock";
 "Import SponsorBlock Settings" = "Importa impostazioni SponsorBlock";
 "Export SponsorBlock Settings" = "Esporta impostazioni SponsorBlock";
 "Transfers category choices, skip notices, minimum segment length, and legacy channel allowlists. Private user IDs, contributions, and per-channel profiles are excluded. Seek-bar-only categories become Disabled." = "Trasferisce categorie, avvisi di salto, durata minima e vecchi elenchi di canali consentiti. Esclude ID privati, contributi e profili per canale. Le categorie mostrate solo nella barra di avanzamento vengono disattivate.";
