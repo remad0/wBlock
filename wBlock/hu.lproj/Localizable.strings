@@ -166,6 +166,7 @@
 "Background Diagnostics" = "Háttérdiagnosztika";
 "Background Update Agent" = "Háttérfrissítési ügynök";
 "Backup" = "Biztonsági mentés";
+"Local Backup" = "Helyi biztonsági mentés";
 "Backup from %@ (app v%@, %@ filters). This will replace your current filter selections, whitelist, and element zapper rules." = "Biztonsági mentés innen: %@ (app v%@, %@ szűrő). Ez lecseréli a jelenlegi szűrőválasztásaidat, az engedélyezőlistádat és az elemeltávolító szabályaidat.";
 "Balanced defaults." = "Kiegyensúlyozott alapbeállítások.";
 "Base filter only." = "Csak az alap szűrő.";

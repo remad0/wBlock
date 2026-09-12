@@ -166,6 +166,7 @@
 "Background Diagnostics" = "Diagnóstico en segundo plano";
 "Background Update Agent" = "Agente de actualización en segundo plano";
 "Backup" = "Copia de seguridad";
+"Local Backup" = "Copia de seguridad local";
 "Backup from %@ (app v%@, %@ filters). This will replace your current filter selections, whitelist, and element zapper rules." = "Copia de seguridad de %@ (app v%@, %@ filtros). Esto reemplazará tus selecciones de filtros actuales, la lista blanca y las reglas del ocultador de elementos.";
 "Balanced defaults." = "Valores predeterminados equilibrados.";
 "Base filter only." = "Solo filtro base.";

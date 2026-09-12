@@ -432,7 +432,7 @@ struct SettingsView: View {
             }
             .buttonStyle(.bordered)
         } label: {
-            Label("Backup", systemImage: "square.and.arrow.up.on.square")
+            Text("Local Backup")
         }
         #else
         Button { exportBackup() } label: {

@@ -166,6 +166,7 @@
 "Background Diagnostics" = "バックグラウンド診断";
 "Background Update Agent" = "バックグラウンド更新エージェント";
 "Backup" = "バックアップ";
+"Local Backup" = "ローカルバックアップ";
 "Backup from %@ (app v%@, %@ filters). This will replace your current filter selections, whitelist, and element zapper rules." = "%@ のバックアップ（アプリ v%@、%@ 個のフィルター）です。現在のフィルター選択、ホワイトリスト、要素ブロックのルールがこれで置き換えられます。";
 "Balanced defaults." = "バランスの取れた既定設定。";
 "Base filter only." = "ベースフィルターのみ。";

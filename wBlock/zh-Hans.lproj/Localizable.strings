@@ -166,6 +166,7 @@
 "Background Diagnostics" = "后台诊断";
 "Background Update Agent" = "后台更新代理";
 "Backup" = "备份";
+"Local Backup" = "本地备份";
 "Backup from %@ (app v%@, %@ filters). This will replace your current filter selections, whitelist, and element zapper rules." = "来自 %@ 的备份（应用 v%@，%@ 个过滤器）。这将替换你当前的过滤器选择、白名单和元素清除规则。";
 "Balanced defaults." = "平衡的默认设置。";
 "Base filter only." = "仅基础过滤器。";

@@ -166,6 +166,7 @@
 "Background Diagnostics" = "Arka plan görevleri";
 "Background Update Agent" = "Arka Plan Güncelleme Aracısı";
 "Backup" = "Yedek";
+"Local Backup" = "Yerel Yedek";
 "Backup from %@ (app v%@, %@ filters). This will replace your current filter selections, whitelist, and element zapper rules." = "%@ yedeklemesi (uygulama sürümü: %@, filtreler: %@). Bu işlem; mevcut filtre seçimlerinizi, izin listenizi ve öğe gizleyici kurallarınızı değiştirecektir.";
 "Balanced defaults." = "Dengeli ayarlar.";
 "Base filter only." = "Yalnızca temel filtreler.";

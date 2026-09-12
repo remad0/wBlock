@@ -166,6 +166,7 @@
 "Background Diagnostics" = "Diagnostyka tła";
 "Background Update Agent" = "Agent aktualizacji w tle";
 "Backup" = "Kopia zapasowa";
+"Local Backup" = "Lokalna kopia zapasowa";
 "Backup from %@ (app v%@, %@ filters). This will replace your current filter selections, whitelist, and element zapper rules." = "Kopia zapasowa z %@ (app v%@, %@ filtrów). Zastąpi to bieżące wybory filtrów, białą listę i reguły usuwacza elementów.";
 "Balanced defaults." = "Zrównoważone ustawienia domyślne.";
 "Base filter only." = "Tylko filtr podstawowy.";

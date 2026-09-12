@@ -166,6 +166,7 @@
 "Background Diagnostics" = "백그라운드 진단";
 "Background Update Agent" = "백그라운드 업데이트 에이전트";
 "Backup" = "백업";
+"Local Backup" = "로컬 백업";
 "Backup from %@ (app v%@, %@ filters). This will replace your current filter selections, whitelist, and element zapper rules." = "%@의 백업입니다(앱 v%@, 필터 %@개). 현재 필터 선택, 허용 목록, 요소 제거 규칙이 이 백업으로 대체됩니다.";
 "Balanced defaults." = "균형 잡힌 기본 설정.";
 "Base filter only." = "기본 필터만 사용.";

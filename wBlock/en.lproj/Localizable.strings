@@ -166,6 +166,7 @@
 "Background Diagnostics" = "Background Diagnostics";
 "Background Update Agent" = "Background Update Agent";
 "Backup" = "Backup";
+"Local Backup" = "Local Backup";
 "Backup from %@ (app v%@, %@ filters). This will replace your current filter selections, whitelist, and element zapper rules." = "Backup from %@ (app v%@, %@ filters). This will replace your current filter selections, whitelist, and element zapper rules.";
 "Balanced defaults." = "Balanced defaults.";
 "Base filter only." = "Base filter only.";

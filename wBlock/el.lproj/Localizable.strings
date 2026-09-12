@@ -166,6 +166,7 @@
 "Background Diagnostics" = "Διαγνωστικά παρασκηνίου";
 "Background Update Agent" = "Πράκτορας ενημέρωσης παρασκηνίου";
 "Backup" = "Αντίγραφο ασφαλείας";
+"Local Backup" = "Τοπικό αντίγραφο ασφαλείας";
 "Backup from %@ (app v%@, %@ filters). This will replace your current filter selections, whitelist, and element zapper rules." = "Αντίγραφο ασφαλείας από %@ (έκδοση εφαρμογής %@, %@ φίλτρα). Αυτό θα αντικαταστήσει τις τρέχουσες επιλογές φίλτρων, τη λίστα επιτρεπόμενων και τους κανόνες του στοιχειο-αφανιστή.";
 "Balanced defaults." = "Ισορροπημένες προεπιλογές.";
 "Base filter only." = "Μόνο βασικό φίλτρο.";

@@ -166,6 +166,7 @@
 "Background Diagnostics" = "Diagnostic en arrière-plan";
 "Background Update Agent" = "Agent de mise à jour en arrière-plan";
 "Backup" = "Sauvegarde";
+"Local Backup" = "Sauvegarde locale";
 "Backup from %@ (app v%@, %@ filters). This will replace your current filter selections, whitelist, and element zapper rules." = "Sauvegarde du %@ (app v%@, %@ filtres). Cela remplacera vos sélections de filtres actuelles, la liste blanche et les règles du zappeur d’éléments.";
 "Balanced defaults." = "Paramètres par défaut équilibrés.";
 "Base filter only." = "Filtre de base uniquement.";
